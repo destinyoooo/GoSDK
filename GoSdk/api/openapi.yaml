@@ -1,0 +1,99 @@
+openapi: 3.0.1
+info:
+  description: HTTP collect logs
+  title: Log collect service
+  version: 0.1.0
+servers:
+- url: /
+tags:
+- description: HTTP collect
+  name: log-collect
+paths:
+  /project/{project}/log_store/{log_store}/putlog:
+    post:
+      operationId: httpCollect
+      parameters:
+      - description: 项目名
+        in: path
+        name: project
+        required: true
+        schema:
+          type: string
+      - description: 库名
+        in: path
+        name: log_store
+        required: true
+        schema:
+          type: string
+      - description: cls版本,值v1.0.0
+        in: header
+        name: Log-Apiversion
+        schema:
+          type: string
+      - description: 上传日志大小,小于等于1024
+        in: header
+        name: Log-Bodyrawsize
+        schema: {}
+      - description: Key ID
+        in: header
+        name: AccessKeyId
+        schema:
+          type: string
+      - description: Key Secret
+        in: header
+        name: AccessKeySecret
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              items:
+                $ref: '#/components/schemas/logger.LogX'
+              type: array
+        description: Body内容为json切片
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/logger.Response'
+          description: 请求成功
+        "400":
+          content: {}
+          description: 参数错误
+        "500":
+          content: {}
+          description: 内部错误
+      summary: Http协议接入日志
+      tags:
+      - Logger Collect
+      x-codegen-request-body-name: body
+components:
+  schemas:
+    logger.LogX:
+      properties:
+        log:
+          type: string
+        timestamp:
+          type: string
+      required:
+      - log
+      - timestamp
+      type: object
+    logger.Response:
+      example:
+        code: 0
+        message: message
+      properties:
+        code:
+          format: integer
+          type: integer
+        message:
+          type: string
+      required:
+      - code
+      - message
+      type: object
+x-original-swagger-version: "2.0"
