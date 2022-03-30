@@ -1,4 +1,4 @@
-module github.com/destinyoooo/GoSdk
+module github.com/destinyoooo/Test01
 
 go 1.13
 
