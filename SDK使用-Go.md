@@ -19,8 +19,8 @@ import (
 ```
 
 或者直接下载整个项目文件到vendor
+![image](https://user-images.githubusercontent.com/57470814/161906890-fd26407c-70d7-4eb6-9275-e68db8063ec5.png)
 
-![](C:\Users\wujid\AppData\Roaming\marktext\images\2022-04-06-14-03-32-image.png)
 
 2、使用方法
 
@@ -65,7 +65,7 @@ func main() {
 
 ```go
 import (
-	openapiclient "github.com/destinyoooo/GoSDK"
+    openapiclient "github.com/destinyoooo/GoSDK"
     "context"
     "fmt"
     "os"
