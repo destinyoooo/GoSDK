@@ -61,11 +61,11 @@ func main() {
 
 3、使用示例
 
-在需要使用Client时，import  openapiclient "collectSdk/GoSdk"  
+在需要使用Client时，import "github.com/destinyoooo/GoSDK"
 
 ```go
 import (
-    openapiclient "collectSdk/GoSdk"
+	openapiclient "github.com/destinyoooo/GoSDK"
     "context"
     "fmt"
     "os"
