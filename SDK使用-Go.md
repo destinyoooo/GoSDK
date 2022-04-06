@@ -1,19 +1,30 @@
 go-collect SDK使用方法
 
-#### goland版本
+#### golang版本
 
-1、使用方法
+1、SDK获取
+
+Go版本SDK获取：
+
+https://code.cestc.cn/wujideng/sdktest/-/tree/master/Go
+
+https://github.com/destinyoooo/GoSDK
+
+可以将包import
 
 ```go
-package main
-
 import (
-    "context"
-    "fmt"
-    "os"
-    openapiclient "./openapi"
+    openapiclient "github.com/destinyoooo/GoSDK"
 )
+```
 
+或者直接下载整个项目文件到vendor
+
+![](C:\Users\wujid\AppData\Roaming\marktext\images\2022-04-06-14-03-32-image.png)
+
+2、使用方法
+
+```go
 func main() {
     project := "project_example" // string | 项目名
     logStore := "logStore_example" // string | 库名
@@ -50,18 +61,14 @@ func main() {
 
 3、使用示例
 
-（1）将vendor包解压
-
-        vendor.tar.gz
-
-（2）在需要使用Client时，import  openapiclient "collectSdk/GoSdk"  
+在需要使用Client时，import  openapiclient "collectSdk/GoSdk"  
 
 ```go
 import (
-	openapiclient "collectSdk/GoSdk"
-	"context"
-	"fmt"
-	"os"
+    openapiclient "collectSdk/GoSdk"
+    "context"
+    "fmt"
+    "os"
 )func main() {
     //apiVersion := "apiVersion_example" // string | cls版本,值v1.0.0 (optional)
     //bodySize := TODO // interface{} | 上传日志大小,小于等于1024 (optional)
